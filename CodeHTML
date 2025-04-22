@@ -15,8 +15,6 @@
 
   <!-- Contenu principal -->
   <main>
-    <!-- Section Héro avec vidéo de fond -->
-    <section class="hero">
       <h1>Optimal Data</h1>
       <h3>Slogan</h3>
       <p>Description des services</p>
@@ -47,7 +45,7 @@
     <section class="a-propos">
       <h2>À propos</h2>
       <p>Présentation d’Optimal Data, mission et valeurs</p>
-      <img src="..."> <!-- Image illustrative -->
+      <img src="..."> <!-- METTRE UNE PHOTO ICI -->
     </section>
 
     <!-- Section Contact -->
@@ -64,7 +62,7 @@
     <!-- Section Témoignages -->
     <section class="temoignages">
       <div class="temoignage">
-        <img src="...">
+        <img src="..."> <!-- METTRE UNE PHOTO ICI -->
         <blockquote>“Témoignage client”</blockquote>
         <cite>Nom, titre</cite>
       </div>
