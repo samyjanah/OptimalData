@@ -64,7 +64,7 @@
       <div class="temoignage">
         <img src="..."> <!-- METTRE UNE PHOTO ICI -->
         <blockquote>“Témoignage client”</blockquote>
-        <cite>Nom, titre</cite>
+        <cite>Nom, titre du poste</cite>
       </div>
     </section>
   </main>
