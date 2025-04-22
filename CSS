@@ -1,0 +1,121 @@
+/* ---------------------------------------
+   Styles de base
+   ---------------------------------------
+   body :
+   - Définit la police principale
+   - Supprime marges et paddings par défaut
+   - Applique la couleur de fond et du texte
+*/
+body {
+  font-family: Arial, sans-serif; /* Police sans-serif pour une bonne lisibilité */
+  margin: 0;                      /* Supprime la marge extérieure par défaut */
+  padding: 0;                     /* Supprime le padding par défaut */
+  background-color: #f5f5f5;     /* Fond gris très clair */
+  color: #333;                    /* Texte gris foncé pour contraste */
+}
+
+/* .container :
+   - Centre le contenu horizontalement
+   - Limite la largeur maximale
+   - Ajoute un padding interne
+*/
+.container {
+  width: 90%;          /* Largeur relative à 90% de l'écran */
+  max-width: 1000px;    /* Largeur maximale fixe */
+  margin: 0 auto;       /* Centre horizontalement */
+  padding: 1rem;        /* Espacement interne uniforme */
+}
+
+/* ---------------------------------------
+   Header (En-tête)
+   ---------------------------------------
+   header :
+   - Fond blanc
+   - Padding vertical
+   - Ombre légère pour effet de profondeur
+*/
+header {
+  background-color: #fff;               /* Fond blanc pour contraste */
+  padding: 1rem 0;                      /* Padding haut et bas */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Ombre douce sous le header */
+}
+
+/* header .logo img :
+   - Taille fixe pour le logo
+*/
+header .logo img {
+  height: 40px; /* Hauteur du logo en pixels */
+}
+
+/* ---------------------------------------
+   Navigation principale
+   ---------------------------------------
+   nav ul :
+   - Liste horizontale sans puces
+   - Espacement entre les items
+*/
+nav ul {
+  list-style: none; /* Supprime les puces de la liste */
+  display: flex;    /* Aligne les items sur une ligne */
+  gap: 1rem;        /* Espace entre chaque lien */
+}
+
+/* nav a :
+   - Style des liens de navigation
+*/
+nav a {
+  text-decoration: none; /* Supprime le soulignement */
+  color: #333;           /* Couleur du texte */
+  transition: color 0.3s;/* Transition douce au survol */
+}
+nav a:hover {
+  color: #007acc; /* Change la couleur au survol */
+}
+
+/* ---------------------------------------
+   Sections générales
+   ---------------------------------------
+   section :
+   - Marge autour
+   - Fond blanc et coins arrondis
+   - Padding interne
+*/
+section {
+  margin: 2rem 0;          /* Marge verticale entre sections */
+  background-color: #fff;  /* Fond blanc pour chaque section */
+  padding: 1rem;           /* Padding interne */
+  border-radius: 4px;      /* Coins légèrement arrondis */
+}
+
+/* ---------------------------------------
+   Formulaires
+   ---------------------------------------
+   input, textarea :
+   - Champs en pleine largeur
+   - Padding interne
+   - Bordure et coins arrondis
+*/
+input,
+textarea {
+  width: 100%;             /* Occupe toute la largeur du parent */
+  padding: 0.5rem;         /* Espacement interne */
+  margin-top: 0.5rem;      /* Marge au-dessus des champs */
+  border: 1px solid #ccc;  /* Bordure grise claire */
+  border-radius: 4px;      /* Coins arrondis */
+  font-family: inherit;    /* Même police que le body */
+}
+
+/* ---------------------------------------
+   Footer (Pied de page)
+   ---------------------------------------
+   footer :
+   - Texte centré
+   - Padding vertical
+   - Fond sombre et texte clair
+*/
+footer {
+  text-align: center;      /* Centre le texte horizontalement */
+  padding: 1rem 0;         /* Espacement haut et bas */
+  background-color: #333;  /* Fond gris très foncé */
+  color: #fff;             /* Texte blanc pour contraste */
+}
