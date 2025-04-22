@@ -1,0 +1,28 @@
+// Attendre que la page soit chargée
+window.onload = function() {
+  // Défilement fluide pour les liens #
+  var liens = document.querySelectorAll('a[href^="#"]');
+  for (var i = 0; i < liens.length; i++) {
+    liens[i].onclick = function(e) {
+      e.preventDefault();
+      var cible = document.querySelector(this.hash);
+      if (cible) {
+        cible.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
+
+  // Validation simple du formulaire
+  var form = document.querySelector('.contact-form');
+  if (form) {
+    form.onsubmit = function(e) {
+      var nom = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var message = document.getElementById('message').value;
+      if (nom === '' || email === '' || message === '') {
+        e.preventDefault();
+        alert('Merci de remplir tous les champs');
+      }
+    }
+  }
+};
