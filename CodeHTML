@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+  <title>Accueil - Optimal Data</title>
+  
+</head>
+
+<body class="home page">
+ 
+
+  <!-- En-tête (Header) -->
+  <header>
+      <div class="logo"> <!-- Logo Optimal Data --> </div>
+  </header>
+
+  <!-- Contenu principal -->
+  <main>
+    <!-- Section Héro avec vidéo de fond -->
+    <section class="hero">
+      <h1>Optimal Data</h1>
+      <h3>Slogan</h3>
+      <p>Description des services</p>
+    </section>
+
+    <!-- Section Services -->
+    <section class="services">
+      <h2>Nos services</h2>
+      <div class="service">
+        <h3>Gestion et structuration des données</h3>
+        <p>Description</p>
+      </div>
+      <div class="service">
+        <h3>Reporting et visualisation</h3>
+        <p>Description</p>
+      </div>
+      <div class="service">
+        <h3>Optimisation des décisions</h3>
+        <p>Description</p>
+      </div>
+      <div class="service">
+        <h3>Accompagnement personnalisé</h3>
+        <p>Description</p>
+      </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section class="a-propos">
+      <h2>À propos</h2>
+      <p>Présentation d’Optimal Data, mission et valeurs</p>
+      <img src="..."> <!-- Image illustrative -->
+    </section>
+
+    <!-- Section Contact -->
+    <section class="contact">
+      <h2>Contactez-nous</h2>
+      <form>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section class="temoignages">
+      <div class="temoignage">
+        <img src="...">
+        <blockquote>“Témoignage client”</blockquote>
+        <cite>Nom, titre</cite>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page (Footer) -->
+  <footer>
+    <p>© 2025 All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
