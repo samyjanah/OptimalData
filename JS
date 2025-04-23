@@ -1,53 +1,130 @@
-/* ========== 1. Cartes Services (fade/slide) ========== */
-const cards = document.querySelectorAll('.service-card');
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.style.transform = 'translateY(0)';
-      e.target.style.opacity = '1';
-    }
-  });
-},{threshold:0.2});
-cards.forEach(c=>{
-  c.style.opacity = '0';
-  c.style.transform = 'translateY(40px)';
-  observer.observe(c);
+/* ----------------------------------------------------------
+   1. Apparition douce des cartes Services au scroll
+---------------------------------------------------------- */
+document.querySelectorAll('.service-card').forEach(card => {
+  card.style.opacity   = '0';
+  card.style.transform = 'translateY(40px)';
 });
 
-/* ========== 2. Menu hamburger ========== */
-const hamburger = document.getElementById('hamburger');
-const nav = document.getElementById('nav');
-hamburger.addEventListener('click',()=>{
-  const open = hamburger.classList.toggle('open');
-  nav.classList.toggle('open',open);
-  hamburger.setAttribute('aria-expanded',open);
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity   = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+document.querySelectorAll('.service-card').forEach(c => revealObserver.observe(c));
+
+/* ----------------------------------------------------------
+   2. Menu hamburger – ouvre / ferme la nav mobile
+---------------------------------------------------------- */
+const burger = document.getElementById('hamburger');
+const nav    = document.getElementById('nav');
+
+burger.addEventListener('click', () => {
+  const open = burger.classList.toggle('open');
+  nav.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
 });
-nav.querySelectorAll('a').forEach(link=>{
-  link.addEventListener('click',()=>{
-    hamburger.classList.remove('open');
+
+nav.querySelectorAll('a').forEach(link =>
+  link.addEventListener('click', () => {
+    burger.classList.remove('open');
     nav.classList.remove('open');
-    hamburger.setAttribute('aria-expanded','false');
-  });
-});
+    burger.setAttribute('aria-expanded', 'false');
+  })
+);
 
-/* ========== 3. Bouton Pause/Lecture vidéo ========== */
-const video = document.querySelector('.hero-video');
+/* ----------------------------------------------------------
+   3. Play / Pause vidéo d’accueil
+---------------------------------------------------------- */
+const video   = document.querySelector('.accueil-video');
 const control = document.getElementById('videoControl');
-control.addEventListener('click',()=>{
-  if(video.paused){
+
+control.addEventListener('click', () => {
+  if (video.paused) {
     video.play();
     control.textContent = '❚❚';
-    control.setAttribute('aria-label','Mettre la vidéo en pause');
-  }else{
+  } else {
     video.pause();
     control.textContent = '►';
-    control.setAttribute('aria-label','Lire la vidéo');
   }
 });
 
-/* ========== 4. Formulaire (démo) ========== */
-document.getElementById('contactForm').addEventListener('submit',e=>{
+/* ----------------------------------------------------------
+   4. Formulaire de contact – alerte prototype
+---------------------------------------------------------- */
+document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
   alert('Merci pour votre message ! (Prototype)');
   e.target.reset();
+});
+
+/* ----------------------------------------------------------
+   5. Overlay d’une carte Service
+      — jamais deux cartes ouvertes simultanément
+---------------------------------------------------------- */
+const backdrop = document.getElementById('backdrop');
+let   expanded = null;
+
+/* Fermeture générique */
+function closeCard() {
+  if (!expanded) return;
+  expanded.remove();
+  expanded = null;
+  backdrop.classList.remove('show');
+  document.body.style.overflow = '';
+}
+backdrop.addEventListener('click', closeCard);
+
+/* Ouverture au clic */
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('click', () => {
+    /* ferme la carte précédente si besoin */
+    if (expanded) closeCard();
+
+    /* clone visuel */
+    const r     = card.getBoundingClientRect();
+    const clone = card.cloneNode(true);
+
+    Object.assign(clone.style, {
+      position   : 'fixed',
+      top        : `${r.top}px`,
+      left       : `${r.left}px`,
+      width      : `${r.width}px`,
+      height     : `${r.height}px`,
+      margin     : '0',
+      zIndex     : '1200',
+      transition : 'all var(--transition)'
+    });
+
+    /* contenu détaillé + bouton fermer */
+    clone.className = 'expanded-card';
+    clone.innerHTML = `
+      <h3>${card.querySelector('h3').textContent}</h3>
+      <p class="detail-text">${card.dataset.detail}</p>
+      <button class="close-x" aria-label="Fermer">✕</button>
+    `;
+    clone.querySelector('.close-x').onclick = closeCard;
+    document.body.appendChild(clone);
+
+    expanded = clone;
+    backdrop.classList.add('show');
+    document.body.style.overflow = 'hidden';
+
+    /* animation vers le centre */
+    requestAnimationFrame(() => {
+      Object.assign(clone.style, {
+        top      : '50%',
+        left     : '50%',
+        transform: 'translate(-50%, -50%)',
+        width    : 'min(600px, 90vw)',
+        height   : 'auto'
+      });
+    });
+  });
 });
