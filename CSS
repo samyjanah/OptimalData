@@ -1,121 +1,120 @@
-/* ---------------------------------------
-   Styles de base
-   ---------------------------------------
-   body :
-   - Définit la police principale
-   - Supprime marges et paddings par défaut
-   - Applique la couleur de fond et du texte
-*/
-body {
-  font-family: Arial, sans-serif; /* Police sans-serif pour une bonne lisibilité */
-  margin: 0;                      /* Supprime la marge extérieure par défaut */
-  padding: 0;                     /* Supprime le padding par défaut */
-  background-color: #f5f5f5;     /* Fond gris très clair */
-  color: #333;                    /* Texte gris foncé pour contraste */
-}
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Optimal Data – Prototype statique</title>
 
-/* .container :
-   - Centre le contenu horizontalement
-   - Limite la largeur maximale
-   - Ajoute un padding interne
-*/
-.container {
-  width: 90%;          /* Largeur relative à 90% de l'écran */
-  max-width: 1000px;    /* Largeur maximale fixe */
-  margin: 0 auto;       /* Centre horizontalement */
-  padding: 1rem;        /* Espacement interne uniforme */
-}
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-/* ---------------------------------------
-   Header (En-tête)
-   ---------------------------------------
-   header :
-   - Fond blanc
-   - Padding vertical
-   - Ombre légère pour effet de profondeur
-*/
-header {
-  background-color: #fff;               /* Fond blanc pour contraste */
-  padding: 1rem 0;                      /* Padding haut et bas */
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Ombre douce sous le header */
-}
+  <!-- ===== BARRE SUPÉRIEURE ===== -->
+  <header class="topbar">
+    <a class="logo" href="#">
+      <img src="https://optimaldata.fr/wp-content/uploads/2024/10/Optimal__8_-removebg-preview-1.png" alt="Optimal Data">
+    </a>
 
-/* header .logo img :
-   - Taille fixe pour le logo
-*/
-header .logo img {
-  height: 40px; /* Hauteur du logo en pixels */
-}
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-/* ---------------------------------------
-   Navigation principale
-   ---------------------------------------
-   nav ul :
-   - Liste horizontale sans puces
-   - Espacement entre les items
-*/
-nav ul {
-  list-style: none; /* Supprime les puces de la liste */
-  display: flex;    /* Aligne les items sur une ligne */
-  gap: 1rem;        /* Espace entre chaque lien */
-}
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-/* nav a :
-   - Style des liens de navigation
-*/
-nav a {
-  text-decoration: none; /* Supprime le soulignement */
-  color: #333;           /* Couleur du texte */
-  transition: color 0.3s;/* Transition douce au survol */
-}
-nav a:hover {
-  color: #007acc; /* Change la couleur au survol */
-}
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Optimal Data</h1>
+    <h3>Optimisez votre data, valorisez votre potentiel</h3>
+    <p>Des solutions personnalisées en gestion et analyse de données pour optimiser vos performances et faciliter vos décisions stratégiques.</p>
+    <a href="#contact" class="btn">Nous contacter</a>
 
-/* ---------------------------------------
-   Sections générales
-   ---------------------------------------
-   section :
-   - Marge autour
-   - Fond blanc et coins arrondis
-   - Padding interne
-*/
-section {
-  margin: 2rem 0;          /* Marge verticale entre sections */
-  background-color: #fff;  /* Fond blanc pour chaque section */
-  padding: 1rem;           /* Padding interne */
-  border-radius: 4px;      /* Coins légèrement arrondis */
-}
+    <video class="hero-video" autoplay muted playsinline loop>
+      <source src="https://optimaldata.fr/wp-content/uploads/2024/10/3129957-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
 
-/* ---------------------------------------
-   Formulaires
-   ---------------------------------------
-   input, textarea :
-   - Champs en pleine largeur
-   - Padding interne
-   - Bordure et coins arrondis
-*/
-input,
-textarea {
-  width: 100%;             /* Occupe toute la largeur du parent */
-  padding: 0.5rem;         /* Espacement interne */
-  margin-top: 0.5rem;      /* Marge au-dessus des champs */
-  border: 1px solid #ccc;  /* Bordure grise claire */
-  border-radius: 4px;      /* Coins arrondis */
-  font-family: inherit;    /* Même police que le body */
-}
+    <button class="video-control" id="videoControl" aria-label="Mettre la vidéo en pause">❚❚</button>
+  </section>
 
-/* ---------------------------------------
-   Footer (Pied de page)
-   ---------------------------------------
-   footer :
-   - Texte centré
-   - Padding vertical
-   - Fond sombre et texte clair
-*/
-footer {
-  text-align: center;      /* Centre le texte horizontalement */
-  padding: 1rem 0;         /* Espacement haut et bas */
-  background-color: #333;  /* Fond gris très foncé */
-  color: #fff;             /* Texte blanc pour contraste */
-}
+  <!-- ===== SERVICES ===== -->
+  <section id="services">
+    <h2 class="section-title">Nos services</h2>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Gestion & structuration des données</h3>
+        <p>Nous centralisons et sécurisons les informations essentielles telles que les ventes, les stocks, les achats et les flux patients, offrant ainsi une <strong>meilleure visibilité opérationnelle</strong>.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Reporting & visualisation avancée</h3>
+        <p>Nos tableaux de bord interactifs présentent en temps réel les indicateurs clés de performance, <strong>facilitant l’identification des tendances</strong> et l’ajustement rapide des stratégies.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Optimisation des décisions stratégiques</h3>
+        <p>Grâce à l’analyse prédictive, nous aidons à anticiper les ruptures de stock et à planifier les approvisionnements, <strong>améliorant ainsi la rentabilité de l’officine</strong>.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Accompagnement stratégique personnalisé</h3>
+        <p>Notre équipe offre un <strong>conseil sur mesure</strong> pour intégrer efficacement les solutions data aux processus existants, garantissant une transition fluide et une formation adaptée du personnel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== À PROPOS ===== -->
+  <section id="about">
+    <h2 class="section-title">À propos</h2>
+
+    <p>Optimal Data a été fondé avec l’ambition de transformer la gestion des pharmacies en exploitant pleinement le potentiel des données. Notre mission est de fournir aux officines des solutions technologiques avancées :</p>
+
+    <ul class="about-list">
+      <li>Optimiser les opérations quotidiennes ;</li>
+      <li>Améliorer la satisfaction des patients ;</li>
+      <li>Accroître la rentabilité globale.</li>
+    </ul>
+
+    <h3 class="values-title">Nos valeurs fondamentales</h3>
+    <ul class="values-list">
+      <li><strong>Innovation</strong> – Nous recherchons continuellement de nouvelles approches et technologies pour enrichir nos solutions et offrir toujours plus de valeur.</li>
+      <li><strong>Intégrité</strong> – Nous agissons avec honnêteté et transparence, en plaçant les intérêts de nos clients au cœur de nos décisions.</li>
+      <li><strong>Collaboration</strong> – Nous croyons au pouvoir du travail d’équipe et à l’importance de relations solides avec nos clients et partenaires.</li>
+      <li><strong>Excellence</strong> – Nous visons les plus hauts standards de qualité afin d’assurer le succès de nos clients.</li>
+    </ul>
+
+    <p>En choisissant Optimal Data, vous optez pour un <strong>partenaire dédié</strong> à votre réussite, prêt à vous accompagner dans la transformation digitale de votre officine et à vous fournir les outils nécessaires pour prospérer dans un environnement en constante évolution.</p>
+  </section>
+
+  <!-- ===== TÉMOIGNAGE ===== -->
+  <section>
+    <blockquote class="testimonial">
+      « Coach d’Optimal Data, j’ai été bluffé par leur capacité à simplifier la data sans jamais perdre en impact. Une équipe sérieuse, agile et orientée valeur. »
+      <cite>Jean-François Lambert – Business Angel, Efrei</cite>
+    </blockquote>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <h2 class="section-title">Contactez-nous</h2>
+
+    <form id="contactForm">
+      <input  type="text"  placeholder="Nom"    required>
+      <input  type="email" placeholder="Email"  required>
+      <textarea             placeholder="Message" required></textarea>
+      <button class="btn">Envoyer</button>
+    </form>
+  </section>
+
+  <footer class="footer">© 2025 Optimal Data</footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
