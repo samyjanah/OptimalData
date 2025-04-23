@@ -1,78 +1,120 @@
-<!DOCTYPE html>
-<html lang="fr-FR">
+<!doctype html>
+<html lang="fr">
 <head>
-  <title>Accueil - Optimal Data</title>
-  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Optimal Data – Prototype statique</title>
+
+  <link rel="stylesheet" href="styles.css">
 </head>
+<body>
 
-<body class="home page">
- 
+  <!-- ===== BARRE SUPÉRIEURE ===== -->
+  <header class="topbar">
+    <a class="logo" href="#">
+      <img src="https://optimaldata.fr/wp-content/uploads/2024/10/Optimal__8_-removebg-preview-1.png" alt="Optimal Data">
+    </a>
 
-  <!-- En-tête (Header) -->
-  <header>
-      <div class="logo"> <!-- Logo Optimal Data --> </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Contenu principal -->
-  <main>
-      <h1>Optimal Data</h1>
-      <h3>Slogan</h3>
-      <p>Description des services</p>
-    </section>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Optimal Data</h1>
+    <h3>Optimisez votre data, valorisez votre potentiel</h3>
+    <p>Des solutions personnalisées en gestion et analyse de données pour optimiser vos performances et faciliter vos décisions stratégiques.</p>
+    <a href="#contact" class="btn">Nous contacter</a>
 
-    <!-- Section Services -->
-    <section class="services">
-      <h2>Nos services</h2>
-      <div class="service">
-        <h3>Gestion et structuration des données</h3>
-        <p>Description</p>
+    <video class="hero-video" autoplay muted playsinline loop>
+      <source src="https://optimaldata.fr/wp-content/uploads/2024/10/3129957-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+
+    <button class="video-control" id="videoControl" aria-label="Mettre la vidéo en pause">❚❚</button>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services">
+    <h2 class="section-title">Nos services</h2>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Gestion & structuration des données</h3>
+        <p>Nous centralisons et sécurisons les informations essentielles telles que les ventes, les stocks, les achats et les flux patients, offrant ainsi une <strong>meilleure visibilité opérationnelle</strong>.</p>
       </div>
-      <div class="service">
-        <h3>Reporting et visualisation</h3>
-        <p>Description</p>
+
+      <div class="service-card">
+        <h3>Reporting & visualisation avancée</h3>
+        <p>Nos tableaux de bord interactifs présentent en temps réel les indicateurs clés de performance, <strong>facilitant l’identification des tendances</strong> et l’ajustement rapide des stratégies.</p>
       </div>
-      <div class="service">
-        <h3>Optimisation des décisions</h3>
-        <p>Description</p>
+
+      <div class="service-card">
+        <h3>Optimisation des décisions stratégiques</h3>
+        <p>Grâce à l’analyse prédictive, nous aidons à anticiper les ruptures de stock et à planifier les approvisionnements, <strong>améliorant ainsi la rentabilité de l’officine</strong>.</p>
       </div>
-      <div class="service">
-        <h3>Accompagnement personnalisé</h3>
-        <p>Description</p>
+
+      <div class="service-card">
+        <h3>Accompagnement stratégique personnalisé</h3>
+        <p>Notre équipe offre un <strong>conseil sur mesure</strong> pour intégrer efficacement les solutions data aux processus existants, garantissant une transition fluide et une formation adaptée du personnel.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Section À propos -->
-    <section class="a-propos">
-      <h2>À propos</h2>
-      <p>Présentation d’Optimal Data, mission et valeurs</p>
-      <img src="..."> <!-- METTRE UNE PHOTO ICI -->
-    </section>
+  <!-- ===== À PROPOS ===== -->
+  <section id="about">
+    <h2 class="section-title">À propos</h2>
 
-    <!-- Section Contact -->
-    <section class="contact">
-      <h2>Contactez-nous</h2>
-      <form>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <textarea name="message"></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
-    </section>
+    <p>Optimal Data a été fondé avec l’ambition de transformer la gestion des pharmacies en exploitant pleinement le potentiel des données. Notre mission est de fournir aux officines des solutions technologiques avancées :</p>
 
-    <!-- Section Témoignages -->
-    <section class="temoignages">
-      <div class="temoignage">
-        <img src="..."> <!-- METTRE UNE PHOTO ICI -->
-        <blockquote>“Témoignage client”</blockquote>
-        <cite>Nom, titre du poste</cite>
-      </div>
-    </section>
-  </main>
+    <ul class="about-list">
+      <li>Optimiser les opérations quotidiennes ;</li>
+      <li>Améliorer la satisfaction des patients ;</li>
+      <li>Accroître la rentabilité globale.</li>
+    </ul>
 
-  <!-- Pied de page (Footer) -->
-  <footer>
-    <p>© 2025 All Rights Reserved.</p>
-  </footer>
+    <h3 class="values-title">Nos valeurs fondamentales</h3>
+    <ul class="values-list">
+      <li><strong>Innovation</strong> – Nous recherchons continuellement de nouvelles approches et technologies pour enrichir nos solutions et offrir toujours plus de valeur.</li>
+      <li><strong>Intégrité</strong> – Nous agissons avec honnêteté et transparence, en plaçant les intérêts de nos clients au cœur de nos décisions.</li>
+      <li><strong>Collaboration</strong> – Nous croyons au pouvoir du travail d’équipe et à l’importance de relations solides avec nos clients et partenaires.</li>
+      <li><strong>Excellence</strong> – Nous visons les plus hauts standards de qualité afin d’assurer le succès de nos clients.</li>
+    </ul>
 
+    <p>En choisissant Optimal Data, vous optez pour un <strong>partenaire dédié</strong> à votre réussite, prêt à vous accompagner dans la transformation digitale de votre officine et à vous fournir les outils nécessaires pour prospérer dans un environnement en constante évolution.</p>
+  </section>
+
+  <!-- ===== TÉMOIGNAGE ===== -->
+  <section>
+    <blockquote class="testimonial">
+      « Coach d’Optimal Data, j’ai été bluffé par leur capacité à simplifier la data sans jamais perdre en impact. Une équipe sérieuse, agile et orientée valeur. »
+      <cite>Jean-François Lambert – Business Angel, Efrei</cite>
+    </blockquote>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <h2 class="section-title">Contactez-nous</h2>
+
+    <form id="contactForm">
+      <input  type="text"  placeholder="Nom"    required>
+      <input  type="email" placeholder="Email"  required>
+      <textarea             placeholder="Message" required></textarea>
+      <button class="btn">Envoyer</button>
+    </form>
+  </section>
+
+  <footer class="footer">© 2025 Optimal Data</footer>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
