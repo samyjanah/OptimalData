@@ -1,28 +1,53 @@
-// Attendre que la page soit chargée
-window.onload = function() {
-  // Défilement fluide pour les liens #
-  var liens = document.querySelectorAll('a[href^="#"]');
-  for (var i = 0; i < liens.length; i++) {
-    liens[i].onclick = function(e) {
-      e.preventDefault();
-      var cible = document.querySelector(this.hash);
-      if (cible) {
-        cible.scrollIntoView({ behavior: 'smooth' });
-      }
+/* ========== 1. Cartes Services (fade/slide) ========== */
+const cards = document.querySelectorAll('.service-card');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.transform = 'translateY(0)';
+      e.target.style.opacity = '1';
     }
-  }
+  });
+},{threshold:0.2});
+cards.forEach(c=>{
+  c.style.opacity = '0';
+  c.style.transform = 'translateY(40px)';
+  observer.observe(c);
+});
 
-  // Validation simple du formulaire
-  var form = document.querySelector('.contact-form');
-  if (form) {
-    form.onsubmit = function(e) {
-      var nom = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var message = document.getElementById('message').value;
-      if (nom === '' || email === '' || message === '') {
-        e.preventDefault();
-        alert('Merci de remplir tous les champs');
-      }
-    }
+/* ========== 2. Menu hamburger ========== */
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+hamburger.addEventListener('click',()=>{
+  const open = hamburger.classList.toggle('open');
+  nav.classList.toggle('open',open);
+  hamburger.setAttribute('aria-expanded',open);
+});
+nav.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    hamburger.classList.remove('open');
+    nav.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+  });
+});
+
+/* ========== 3. Bouton Pause/Lecture vidéo ========== */
+const video = document.querySelector('.hero-video');
+const control = document.getElementById('videoControl');
+control.addEventListener('click',()=>{
+  if(video.paused){
+    video.play();
+    control.textContent = '❚❚';
+    control.setAttribute('aria-label','Mettre la vidéo en pause');
+  }else{
+    video.pause();
+    control.textContent = '►';
+    control.setAttribute('aria-label','Lire la vidéo');
   }
-};
+});
+
+/* ========== 4. Formulaire (démo) ========== */
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  alert('Merci pour votre message ! (Prototype)');
+  e.target.reset();
+});
